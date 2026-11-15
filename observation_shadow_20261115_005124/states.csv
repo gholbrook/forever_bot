@@ -1,0 +1,7 @@
+unix_ns,health_fraction,rage_fraction,combat,target,target_health_fraction,signal_target,signal_hostile,signal_charge_usable,signal_charge_range,signal_overpower_usable,signal_victory_rush_usable,signal_heroic_strike_usable,signal_execute_usable,signal_shoot_gun_ready
+1794721885217068800,1.0,0.0625,combat,present,0.5277777777777778,yes,yes,no,no,no,no,no,no,no
+1794721885703883350,1.0,0.0625,combat,present,0.5277777777777778,yes,yes,no,no,no,no,no,no,no
+1794721886206536900,1.0,0.0625,combat,present,0.5277777777777778,yes,yes,no,no,no,no,no,no,no
+1794721886706646900,1.0,0.0625,combat,present,0.5277777777777778,yes,yes,no,yes,no,no,no,no,yes
+1794721887205470500,1.0,0.0625,combat,present,0.5,yes,yes,no,yes,no,no,no,no,yes
+1794721887707709600,1.0,0.0625,combat,present,0.5,yes,yes,no,yes,no,no,no,no,yes

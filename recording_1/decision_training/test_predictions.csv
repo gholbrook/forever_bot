@@ -1,0 +1,11 @@
+action_unix_ns,state_frame,observed_action,model_prediction,baseline_prediction,model_correct
+1794595411484226000,frame_000263.jpg,overpower,heroic_strike,heroic_strike,False
+1794595424221513500,frame_000288.jpg,charge,charge,heroic_strike,True
+1794595425543560400,frame_000291.jpg,rend,charge,heroic_strike,False
+1794595429672598800,frame_000299.jpg,heroic_strike,heroic_strike,heroic_strike,True
+1794595433429673300,frame_000307.jpg,heroic_strike,heroic_strike,heroic_strike,True
+1794595443281950800,frame_000327.jpg,charge,charge,heroic_strike,True
+1794595445080852000,frame_000330.jpg,victory_rush,heroic_strike,heroic_strike,False
+1794595447207922600,frame_000334.jpg,rend,heroic_strike,heroic_strike,False
+1794595449987004900,frame_000340.jpg,heroic_strike,heroic_strike,heroic_strike,True
+1794595452900034800,frame_000346.jpg,heroic_strike,heroic_strike,heroic_strike,True

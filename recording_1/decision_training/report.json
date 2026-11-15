@@ -1,0 +1,109 @@
+{
+  "source": "recording_1\\decision_replay_with_abilities.csv",
+  "task": "predict recorded combat/recovery key conditional on a recorded input",
+  "split": {
+    "method": "chronological",
+    "test_fraction_requested": 0.25,
+    "gap_seconds": 2.0,
+    "train_count": 30,
+    "gap_count": 0,
+    "test_count": 10,
+    "train_last_ns": 1794595407307024900,
+    "test_first_ns": 1794595411484226000
+  },
+  "skipped_rows": {
+    "other_input": 239
+  },
+  "training_class_counts": {
+    "charge": 7,
+    "rend": 6,
+    "thunderclap": 3,
+    "heroic_strike": 11,
+    "victory_rush": 2,
+    "auto_attack": 1
+  },
+  "test_class_counts": {
+    "overpower": 1,
+    "charge": 2,
+    "rend": 2,
+    "heroic_strike": 4,
+    "victory_rush": 1
+  },
+  "unseen_test_classes": [
+    "overpower"
+  ],
+  "baseline_action": "heroic_strike",
+  "model_metrics": {
+    "accuracy": 0.6,
+    "correct": 6,
+    "count": 10,
+    "balanced_accuracy": 0.4,
+    "per_class": {
+      "charge": {
+        "examples": 2,
+        "correct": 2,
+        "recall": 1.0
+      },
+      "heroic_strike": {
+        "examples": 4,
+        "correct": 4,
+        "recall": 1.0
+      },
+      "overpower": {
+        "examples": 1,
+        "correct": 0,
+        "recall": 0.0
+      },
+      "rend": {
+        "examples": 2,
+        "correct": 0,
+        "recall": 0.0
+      },
+      "victory_rush": {
+        "examples": 1,
+        "correct": 0,
+        "recall": 0.0
+      }
+    }
+  },
+  "baseline_metrics": {
+    "accuracy": 0.4,
+    "correct": 4,
+    "count": 10,
+    "balanced_accuracy": 0.2,
+    "per_class": {
+      "charge": {
+        "examples": 2,
+        "correct": 0,
+        "recall": 0.0
+      },
+      "heroic_strike": {
+        "examples": 4,
+        "correct": 4,
+        "recall": 1.0
+      },
+      "overpower": {
+        "examples": 1,
+        "correct": 0,
+        "recall": 0.0
+      },
+      "rend": {
+        "examples": 2,
+        "correct": 0,
+        "recall": 0.0
+      },
+      "victory_rush": {
+        "examples": 1,
+        "correct": 0,
+        "recall": 0.0
+      }
+    }
+  },
+  "limitations": [
+    "Within-session split is exploratory; use separate sessions for stronger evaluation.",
+    "Inputs are attempted actions, not verified outcomes.",
+    "No wait/no-action samples, movement or loot labels.",
+    "Accuracy is agreement with your recorded inputs, not combat success or safety.",
+    "Pre-action frames can include capture timing uncertainty; icon appearance is not guaranteed usability."
+  ]
+}

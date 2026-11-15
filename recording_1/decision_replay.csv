@@ -1,0 +1,280 @@
+action_unix_ns,action_type,action_raw,observed_action,state_frame,state_unix_ns,state_age_ms,health_fraction_estimate,combat_estimate,rage_fraction_estimate,target_presence_estimate,target_health_fraction_estimate,recommendation,reason
+1794595281237183600,key_down,w,forward,frame_000003.jpg,1794595281174931350,62.3,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595281473826300,key_down,a,turn_left,frame_000003.jpg,1794595281174931350,298.9,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595282489590500,key_down,tab,target_nearest,frame_000005.jpg,1794595282175880000,313.7,1.000,out_of_combat,0.000,absent,,abstain,No validated decision for this situation.
+1794595284521812500,key_down,3,charge,frame_000009.jpg,1794595284175891350,345.9,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595287061829800,key_down,5,rend,frame_000014.jpg,1794595286677010900,384.8,1.000,combat,0.326,present,0.806,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595289258826100,key_down,4,thunderclap,frame_000019.jpg,1794595289179156150,79.7,0.986,combat,0.389,present,0.562,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595292028858000,key_down,2,heroic_strike,frame_000024.jpg,1794595291682372850,346.5,0.958,combat,0.347,present,0.264,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595294752383200,right_down,"2645,710",right_click,frame_000030.jpg,1794595294683247200,69.1,0.993,out_of_combat,0.208,present,0.000,abstain,No validated decision for this situation.
+1794595296058010500,key_down,a,turn_left,frame_000032.jpg,1794595295683830400,374.2,0.993,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595296570436100,key_down,a,turn_left,frame_000033.jpg,1794595296183446900,387.0,0.993,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595296601824700,key_down,a,turn_left,frame_000033.jpg,1794595296183446900,418.4,0.993,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595296633497100,key_down,a,turn_left,frame_000033.jpg,1794595296183446900,450.1,0.993,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595296664432800,key_down,a,turn_left,frame_000033.jpg,1794595296183446900,481.0,0.993,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595296939028100,key_down,w,forward,frame_000034.jpg,1794595296683441800,255.6,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595297311979800,key_down,a,turn_left,frame_000035.jpg,1794595297184962450,127.0,1.000,out_of_combat,0.111,unknown,,abstain,Missing or uncertain observations.
+1794595299071058000,key_down,d,turn_right,frame_000038.jpg,1794595298684372050,386.7,1.000,out_of_combat,0.042,absent,,abstain,No validated decision for this situation.
+1794595303575950800,key_down,d,turn_right,frame_000047.jpg,1794595303188318650,387.6,1.000,out_of_combat,0.028,absent,,abstain,No validated decision for this situation.
+1794595303812088400,key_down,w,forward,frame_000048.jpg,1794595303687726000,124.4,1.000,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595304422972300,key_down,tab,target_nearest,frame_000049.jpg,1794595304188559250,234.4,1.000,out_of_combat,0.972,unknown,,abstain,Missing or uncertain observations.
+1794595304795127000,key_down,w,forward,frame_000050.jpg,1794595304687128750,108.0,1.000,out_of_combat,0.979,unknown,,abstain,Missing or uncertain observations.
+1794595305066148000,key_down,d,turn_right,frame_000050.jpg,1794595304687128750,379.0,1.000,out_of_combat,0.979,unknown,,abstain,Missing or uncertain observations.
+1794595306521161600,key_down,3,charge,frame_000053.jpg,1794595306189251000,331.9,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595308619205100,key_down,5,rend,frame_000057.jpg,1794595308189775750,429.4,1.000,combat,0.139,unknown,,abstain,Missing or uncertain observations.
+1794595313560326300,key_down,4,thunderclap,frame_000067.jpg,1794595313195066100,365.3,1.000,combat,0.299,present,0.528,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595314470334500,key_down,s,backward,frame_000069.jpg,1794595314195486150,274.8,1.000,combat,0.299,present,0.465,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595315281338300,key_down,2,heroic_strike,frame_000071.jpg,1794595315196259850,85.1,1.000,combat,0.979,present,0.319,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595318595379500,key_down,2,heroic_strike,frame_000077.jpg,1794595318196379150,399.0,1.000,combat,0.979,present,0.257,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595320116440400,key_down,a,turn_left,frame_000080.jpg,1794595319697606350,418.8,1.000,out_of_combat,0.972,unknown,,abstain,Missing or uncertain observations.
+1794595322041865400,right_down,"2668,755",right_click,frame_000084.jpg,1794595321698829250,343.0,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595322990509200,key_down,a,turn_left,frame_000086.jpg,1794595322701117200,289.4,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595323504335400,key_down,a,turn_left,frame_000087.jpg,1794595323202480700,301.9,1.000,out_of_combat,0.000,present,0.000,abstain,No validated decision for this situation.
+1794595323534993400,key_down,a,turn_left,frame_000087.jpg,1794595323202480700,332.5,1.000,out_of_combat,0.000,present,0.000,abstain,No validated decision for this situation.
+1794595323566465100,key_down,a,turn_left,frame_000087.jpg,1794595323202480700,364.0,1.000,out_of_combat,0.000,present,0.000,abstain,No validated decision for this situation.
+1794595323597672400,key_down,a,turn_left,frame_000087.jpg,1794595323202480700,395.2,1.000,out_of_combat,0.000,present,0.000,abstain,No validated decision for this situation.
+1794595323628329600,key_down,a,turn_left,frame_000087.jpg,1794595323202480700,425.8,1.000,out_of_combat,0.000,present,0.000,abstain,No validated decision for this situation.
+1794595323659797000,key_down,a,turn_left,frame_000087.jpg,1794595323202480700,457.3,1.000,out_of_combat,0.000,present,0.000,abstain,No validated decision for this situation.
+1794595323692335600,key_down,a,turn_left,frame_000087.jpg,1794595323202480700,489.9,1.000,out_of_combat,0.000,present,0.000,abstain,No validated decision for this situation.
+1794595323723086400,key_down,a,turn_left,frame_000088.jpg,1794595323701753100,21.3,1.000,out_of_combat,0.431,unknown,,abstain,Missing or uncertain observations.
+1794595323769772100,key_down,a,turn_left,frame_000088.jpg,1794595323701753100,68.0,1.000,out_of_combat,0.431,unknown,,abstain,Missing or uncertain observations.
+1794595323800421300,key_down,a,turn_left,frame_000088.jpg,1794595323701753100,98.7,1.000,out_of_combat,0.431,unknown,,abstain,Missing or uncertain observations.
+1794595324074298600,key_down,tab,target_nearest,frame_000088.jpg,1794595323701753100,372.5,1.000,out_of_combat,0.431,unknown,,abstain,Missing or uncertain observations.
+1794595324613546800,key_down,a,turn_left,frame_000089.jpg,1794595324202053000,411.5,1.000,out_of_combat,0.826,unknown,,abstain,Missing or uncertain observations.
+1794595326067522500,key_down,3,charge,frame_000092.jpg,1794595325703946750,363.6,1.000,out_of_combat,0.062,unknown,,abstain,Missing or uncertain observations.
+1794595327768635300,key_down,0,victory_rush,frame_000096.jpg,1794595327706221800,62.4,1.000,out_of_combat,0.806,unknown,,abstain,Missing or uncertain observations.
+1794595329549613200,key_down,d,turn_right,frame_000099.jpg,1794595329204080100,345.5,1.000,out_of_combat,0.806,absent,,abstain,No validated decision for this situation.
+1794595330224443600,key_down,tab,target_nearest,frame_000101.jpg,1794595330204548950,19.9,1.000,out_of_combat,0.715,unknown,,abstain,Missing or uncertain observations.
+1794595330665654400,key_down,w,forward,frame_000101.jpg,1794595330204548950,461.1,1.000,out_of_combat,0.715,unknown,,abstain,Missing or uncertain observations.
+1794595331174897600,key_down,w,forward,frame_000102.jpg,1794595330706960700,467.9,1.000,out_of_combat,0.757,unknown,,abstain,Missing or uncertain observations.
+1794595331212294100,key_down,w,forward,frame_000103.jpg,1794595331204075700,8.2,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331237190200,key_down,w,forward,frame_000103.jpg,1794595331204075700,33.1,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331268360300,key_down,w,forward,frame_000103.jpg,1794595331204075700,64.3,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331298997100,key_down,w,forward,frame_000103.jpg,1794595331204075700,94.9,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331330028500,key_down,w,forward,frame_000103.jpg,1794595331204075700,126.0,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331378545900,key_down,w,forward,frame_000103.jpg,1794595331204075700,174.5,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331408226200,key_down,w,forward,frame_000103.jpg,1794595331204075700,204.2,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331438952700,key_down,w,forward,frame_000103.jpg,1794595331204075700,234.9,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331470468500,key_down,w,forward,frame_000103.jpg,1794595331204075700,266.4,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595331476430400,key_down,1,auto_attack,frame_000103.jpg,1794595331204075700,272.4,1.000,out_of_combat,0.632,unknown,,abstain,Missing or uncertain observations.
+1794595332896710600,key_down,a,turn_left,frame_000106.jpg,1794595332706161650,190.5,1.000,combat,0.271,unknown,,abstain,Missing or uncertain observations.
+1794595334723733900,key_down,d,turn_right,frame_000110.jpg,1794595334710213350,13.5,1.000,combat,0.201,unknown,,abstain,Missing or uncertain observations.
+1794595334959726900,key_down,w,forward,frame_000110.jpg,1794595334710213350,249.5,1.000,combat,0.201,unknown,,abstain,Missing or uncertain observations.
+1794595335938775300,key_down,a,turn_left,frame_000112.jpg,1794595335709556550,229.2,1.000,combat,0.188,unknown,,abstain,Missing or uncertain observations.
+1794595336453725800,key_down,a,turn_left,frame_000113.jpg,1794595336209534800,244.2,1.000,out_of_combat,0.604,unknown,,abstain,Missing or uncertain observations.
+1794595336485075700,key_down,a,turn_left,frame_000113.jpg,1794595336209534800,275.5,1.000,out_of_combat,0.604,unknown,,abstain,Missing or uncertain observations.
+1794595336516856600,key_down,a,turn_left,frame_000113.jpg,1794595336209534800,307.3,1.000,out_of_combat,0.604,unknown,,abstain,Missing or uncertain observations.
+1794595336548800500,key_down,a,turn_left,frame_000113.jpg,1794595336209534800,339.3,1.000,out_of_combat,0.604,unknown,,abstain,Missing or uncertain observations.
+1794595336580333000,key_down,a,turn_left,frame_000113.jpg,1794595336209534800,370.8,1.000,out_of_combat,0.604,unknown,,abstain,Missing or uncertain observations.
+1794595336610669800,key_down,a,turn_left,frame_000113.jpg,1794595336209534800,401.1,1.000,out_of_combat,0.604,unknown,,abstain,Missing or uncertain observations.
+1794595337259824400,key_down,2,heroic_strike,frame_000115.jpg,1794595337209165350,50.7,1.000,out_of_combat,0.299,unknown,,abstain,Missing or uncertain observations.
+1794595337801776700,key_down,a,turn_left,frame_000116.jpg,1794595337708897700,92.9,1.000,combat,0.312,unknown,,abstain,Missing or uncertain observations.
+1794595340912133100,key_down,a,turn_left,frame_000122.jpg,1794595340712226950,199.9,1.000,out_of_combat,0.972,unknown,,abstain,Missing or uncertain observations.
+1794595341350828100,key_down,w,forward,frame_000123.jpg,1794595341211877300,139.0,1.000,out_of_combat,0.917,absent,,abstain,No validated decision for this situation.
+1794595341854233800,key_down,w,forward,frame_000124.jpg,1794595341712928650,141.3,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595341885147700,key_down,w,forward,frame_000124.jpg,1794595341712928650,172.2,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595341931066800,key_down,w,forward,frame_000124.jpg,1794595341712928650,218.1,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595341962017400,key_down,w,forward,frame_000124.jpg,1794595341712928650,249.1,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595341993100400,key_down,w,forward,frame_000124.jpg,1794595341712928650,280.2,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595342023815400,key_down,w,forward,frame_000124.jpg,1794595341712928650,310.9,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595342054652400,key_down,w,forward,frame_000124.jpg,1794595341712928650,341.7,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595342085902700,key_down,w,forward,frame_000124.jpg,1794595341712928650,373.0,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595342116542400,key_down,w,forward,frame_000124.jpg,1794595341712928650,403.6,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595342147727500,key_down,w,forward,frame_000124.jpg,1794595341712928650,434.8,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595342193026300,key_down,w,forward,frame_000124.jpg,1794595341712928650,480.1,1.000,out_of_combat,0.167,unknown,,abstain,Missing or uncertain observations.
+1794595342224577500,key_down,w,forward,frame_000125.jpg,1794595342211978400,12.6,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342255584800,key_down,w,forward,frame_000125.jpg,1794595342211978400,43.6,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342287035000,key_down,w,forward,frame_000125.jpg,1794595342211978400,75.1,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342317468300,key_down,w,forward,frame_000125.jpg,1794595342211978400,105.5,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342348377200,key_down,w,forward,frame_000125.jpg,1794595342211978400,136.4,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342379885700,key_down,w,forward,frame_000125.jpg,1794595342211978400,167.9,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342426370300,key_down,w,forward,frame_000125.jpg,1794595342211978400,214.4,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342457740700,key_down,w,forward,frame_000125.jpg,1794595342211978400,245.8,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342488324100,key_down,w,forward,frame_000125.jpg,1794595342211978400,276.3,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342519010400,key_down,w,forward,frame_000125.jpg,1794595342211978400,307.0,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342549632700,key_down,w,forward,frame_000125.jpg,1794595342211978400,337.7,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342581835200,key_down,w,forward,frame_000125.jpg,1794595342211978400,369.9,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595342601708100,key_down,a,turn_left,frame_000125.jpg,1794595342211978400,389.7,1.000,out_of_combat,0.215,absent,,abstain,No validated decision for this situation.
+1794595344866998700,key_down,d,turn_right,frame_000130.jpg,1794595344712896800,154.1,1.000,out_of_combat,0.389,unknown,,abstain,Missing or uncertain observations.
+1794595346796790900,key_down,tab,target_nearest,frame_000134.jpg,1794595346713199850,83.6,1.000,out_of_combat,0.132,present,0.000,abstain,No validated decision for this situation.
+1794595349270021700,key_down,3,charge,frame_000139.jpg,1794595349217038050,53.0,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595351301052100,key_down,5,rend,frame_000143.jpg,1794595351217263750,83.8,1.000,combat,0.306,present,0.819,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595353366094300,key_down,4,thunderclap,frame_000147.jpg,1794595353218909950,147.2,1.000,combat,0.347,present,0.597,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595354854106800,key_down,2,heroic_strike,frame_000150.jpg,1794595354719915250,134.2,0.972,combat,0.215,present,0.438,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595358410155100,key_down,2,heroic_strike,frame_000157.jpg,1794595358221867850,188.3,0.951,combat,0.146,present,0.042,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595360691563900,right_down,"2598,734",right_click,frame_000161.jpg,1794595360224281850,467.3,0.923,out_of_combat,0.215,unknown,,abstain,Missing or uncertain observations.
+1794595361965300200,key_down,w,forward,frame_000164.jpg,1794595361724464300,240.8,0.958,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595362101166200,key_down,w,forward,frame_000164.jpg,1794595361724464300,376.7,0.958,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595362336238100,key_down,d,turn_right,frame_000165.jpg,1794595362223733000,112.5,0.958,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595363352309900,key_down,a,turn_left,frame_000167.jpg,1794595363224691700,127.6,0.993,out_of_combat,0.007,unknown,,abstain,Missing or uncertain observations.
+1794595363860270000,key_down,q,strafe_left,frame_000168.jpg,1794595363725322550,134.9,0.993,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595364362099900,key_down,q,strafe_left,frame_000169.jpg,1794595364225770000,136.3,0.993,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595364407998800,key_down,q,strafe_left,frame_000169.jpg,1794595364225770000,182.2,0.993,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595364807116000,key_down,tab,target_nearest,frame_000170.jpg,1794595364723337750,83.8,0.993,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595366230412700,key_down,a,turn_left,frame_000173.jpg,1794595366227067800,3.3,1.000,out_of_combat,0.007,unknown,,abstain,Missing or uncertain observations.
+1794595366332378000,key_down,w,forward,frame_000173.jpg,1794595366227067800,105.3,1.000,out_of_combat,0.007,unknown,,abstain,Missing or uncertain observations.
+1794595366874137800,key_down,w,forward,frame_000174.jpg,1794595366725057500,149.1,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595366905184300,key_down,w,forward,frame_000174.jpg,1794595366725057500,180.1,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595366936409400,key_down,w,forward,frame_000174.jpg,1794595366725057500,211.4,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595366967602400,key_down,w,forward,frame_000174.jpg,1794595366725057500,242.5,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595366998661000,key_down,w,forward,frame_000174.jpg,1794595366725057500,273.6,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595367277326400,key_down,3,charge,frame_000175.jpg,1794595367225515350,51.8,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595368834405400,key_down,5,rend,frame_000178.jpg,1794595368726861850,107.5,1.000,out_of_combat,0.111,unknown,,abstain,Missing or uncertain observations.
+1794595372618444600,key_down,2,heroic_strike,frame_000185.jpg,1794595372227896800,390.5,0.986,combat,0.153,present,0.736,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595377292589500,key_down,2,heroic_strike,frame_000195.jpg,1794595377231024850,61.6,0.873,combat,0.146,present,0.312,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595381206055700,right_down,"2598,734",right_click,frame_000202.jpg,1794595380733087850,473.0,0.873,out_of_combat,0.062,unknown,,abstain,Missing or uncertain observations.
+1794595382194671400,key_down,a,turn_left,frame_000204.jpg,1794595381732369900,462.3,0.908,out_of_combat,0.035,unknown,,abstain,Missing or uncertain observations.
+1794595382397663900,key_down,w,forward,frame_000205.jpg,1794595382232636150,165.0,0.908,out_of_combat,0.028,unknown,,abstain,Missing or uncertain observations.
+1794595382702612700,key_down,a,turn_left,frame_000205.jpg,1794595382232636150,470.0,0.908,out_of_combat,0.028,unknown,,abstain,Missing or uncertain observations.
+1794595383413541200,key_down,tab,target_nearest,frame_000207.jpg,1794595383233313900,180.2,0.908,out_of_combat,0.472,unknown,,abstain,Missing or uncertain observations.
+1794595384157675400,key_down,3,charge,frame_000208.jpg,1794595383733572600,424.1,0.944,out_of_combat,0.264,unknown,,abstain,Missing or uncertain observations.
+1794595385437702100,key_down,0,victory_rush,frame_000211.jpg,1794595385234264300,203.4,0.944,out_of_combat,0.125,unknown,,abstain,Missing or uncertain observations.
+1794595387137745900,key_down,5,rend,frame_000214.jpg,1794595386736034750,401.7,1.000,combat,0.229,present,0.778,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595388525793300,key_down,a,turn_left,frame_000217.jpg,1794595388234338800,291.5,1.000,combat,0.167,present,0.729,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595389743838000,key_down,e,strafe_right,frame_000220.jpg,1794595389735845200,8.0,1.000,combat,0.368,present,0.674,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595389948052600,key_down,a,turn_left,frame_000220.jpg,1794595389735845200,212.2,1.000,combat,0.368,present,0.674,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595390556788300,key_down,2,heroic_strike,frame_000221.jpg,1794595390235937250,320.9,1.000,combat,0.285,present,0.549,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595392891843600,key_down,2,heroic_strike,frame_000226.jpg,1794595392738537450,153.3,0.993,combat,0.340,present,0.194,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595393670860500,key_down,d,turn_right,frame_000227.jpg,1794595393238810750,432.0,0.993,combat,0.229,present,0.194,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595395845263900,right_down,"2599,732",right_click,frame_000232.jpg,1794595395740284300,105.0,1.000,out_of_combat,0.083,unknown,,abstain,Missing or uncertain observations.
+1794595397020983900,key_down,d,turn_right,frame_000234.jpg,1794595396739385850,281.6,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595397222931500,key_down,w,forward,frame_000234.jpg,1794595396739385850,483.5,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595397837088200,key_down,w,forward,frame_000236.jpg,1794595397740775750,96.3,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595397868168400,key_down,w,forward,frame_000236.jpg,1794595397740775750,127.4,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595397899247000,key_down,w,forward,frame_000236.jpg,1794595397740775750,158.5,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595397930638400,key_down,w,forward,frame_000236.jpg,1794595397740775750,189.9,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595397962508100,key_down,w,forward,frame_000236.jpg,1794595397740775750,221.7,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595397994778100,key_down,w,forward,frame_000236.jpg,1794595397740775750,254.0,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398025206100,key_down,w,forward,frame_000236.jpg,1794595397740775750,284.4,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398056779100,key_down,w,forward,frame_000236.jpg,1794595397740775750,316.0,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398101869500,key_down,w,forward,frame_000236.jpg,1794595397740775750,361.1,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398132258500,key_down,w,forward,frame_000236.jpg,1794595397740775750,391.5,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398163577100,key_down,w,forward,frame_000236.jpg,1794595397740775750,422.8,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398195068400,key_down,w,forward,frame_000236.jpg,1794595397740775750,454.3,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398226238100,key_down,w,forward,frame_000236.jpg,1794595397740775750,485.5,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595398257656700,key_down,w,forward,frame_000237.jpg,1794595398240371600,17.3,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398287846900,key_down,w,forward,frame_000237.jpg,1794595398240371600,47.5,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398334372300,key_down,w,forward,frame_000237.jpg,1794595398240371600,94.0,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398364993300,key_down,w,forward,frame_000237.jpg,1794595398240371600,124.6,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398396036500,key_down,w,forward,frame_000237.jpg,1794595398240371600,155.7,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398426994300,key_down,w,forward,frame_000237.jpg,1794595398240371600,186.6,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398457585800,key_down,w,forward,frame_000237.jpg,1794595398240371600,217.2,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398488012200,key_down,w,forward,frame_000237.jpg,1794595398240371600,247.6,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398518773300,key_down,w,forward,frame_000237.jpg,1794595398240371600,278.4,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398564729600,key_down,w,forward,frame_000237.jpg,1794595398240371600,324.4,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398596038500,key_down,w,forward,frame_000237.jpg,1794595398240371600,355.7,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398626997800,key_down,w,forward,frame_000237.jpg,1794595398240371600,386.6,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398658018300,key_down,w,forward,frame_000237.jpg,1794595398240371600,417.6,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398688650200,key_down,w,forward,frame_000237.jpg,1794595398240371600,448.3,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398719063600,key_down,w,forward,frame_000237.jpg,1794595398240371600,478.7,1.000,out_of_combat,0.049,unknown,,abstain,Missing or uncertain observations.
+1794595398749809600,key_down,w,forward,frame_000238.jpg,1794595398741165300,8.6,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595398795960400,key_down,w,forward,frame_000238.jpg,1794595398741165300,54.8,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595398827259400,key_down,w,forward,frame_000238.jpg,1794595398741165300,86.1,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595398858390400,key_down,w,forward,frame_000238.jpg,1794595398741165300,117.2,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595398888772600,key_down,w,forward,frame_000238.jpg,1794595398741165300,147.6,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595398919323000,key_down,w,forward,frame_000238.jpg,1794595398741165300,178.2,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595398950543900,key_down,w,forward,frame_000238.jpg,1794595398741165300,209.4,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595398981740300,key_down,w,forward,frame_000238.jpg,1794595398741165300,240.6,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399013006700,key_down,w,forward,frame_000238.jpg,1794595398741165300,271.8,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399060626700,key_down,w,forward,frame_000238.jpg,1794595398741165300,319.5,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399091905000,key_down,w,forward,frame_000238.jpg,1794595398741165300,350.7,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399122906800,key_down,w,forward,frame_000238.jpg,1794595398741165300,381.7,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399154826600,key_down,w,forward,frame_000238.jpg,1794595398741165300,413.7,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399185706300,key_down,w,forward,frame_000238.jpg,1794595398741165300,444.5,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399216284000,key_down,w,forward,frame_000238.jpg,1794595398741165300,475.1,1.000,out_of_combat,0.042,unknown,,abstain,Missing or uncertain observations.
+1794595399247468600,key_down,w,forward,frame_000239.jpg,1794595399240747500,6.7,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399279011200,key_down,w,forward,frame_000239.jpg,1794595399240747500,38.3,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399324768200,key_down,w,forward,frame_000239.jpg,1794595399240747500,84.0,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399356196000,key_down,w,forward,frame_000239.jpg,1794595399240747500,115.4,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399387421500,key_down,w,forward,frame_000239.jpg,1794595399240747500,146.7,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399418280100,key_down,w,forward,frame_000239.jpg,1794595399240747500,177.5,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399448707600,key_down,w,forward,frame_000239.jpg,1794595399240747500,208.0,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399479887100,key_down,w,forward,frame_000239.jpg,1794595399240747500,239.1,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399510913000,key_down,w,forward,frame_000239.jpg,1794595399240747500,270.2,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399541959100,key_down,w,forward,frame_000239.jpg,1794595399240747500,301.2,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399587531300,key_down,w,forward,frame_000239.jpg,1794595399240747500,346.8,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399618792200,key_down,w,forward,frame_000239.jpg,1794595399240747500,378.0,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399649419200,key_down,w,forward,frame_000239.jpg,1794595399240747500,408.7,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399680306800,key_down,w,forward,frame_000239.jpg,1794595399240747500,439.6,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595399694685700,key_down,tab,target_nearest,frame_000239.jpg,1794595399240747500,453.9,1.000,out_of_combat,0.160,unknown,,abstain,Missing or uncertain observations.
+1794595400406829100,key_down,tab,target_nearest,frame_000241.jpg,1794595400241904100,164.9,1.000,out_of_combat,0.660,unknown,,abstain,Missing or uncertain observations.
+1794595402064047700,key_down,3,charge,frame_000244.jpg,1794595401743165250,320.9,1.000,out_of_combat,0.403,unknown,,abstain,Missing or uncertain observations.
+1794595403855058500,key_down,5,rend,frame_000248.jpg,1794595403743051850,112.0,1.000,combat,0.236,present,0.819,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595407307024900,key_down,2,heroic_strike,frame_000255.jpg,1794595407245489850,61.5,0.972,combat,0.257,present,0.583,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595411484226000,key_down,7,overpower,frame_000263.jpg,1794595411247836250,236.4,0.901,combat,0.215,present,0.181,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595413646632200,right_down,"2599,732",right_click,frame_000267.jpg,1794595413247497400,399.1,0.901,out_of_combat,0.174,unknown,,abstain,Missing or uncertain observations.
+1794595415052333500,key_down,d,turn_right,frame_000270.jpg,1794595414750804600,301.5,0.930,out_of_combat,0.132,unknown,,abstain,Missing or uncertain observations.
+1794595415555033900,key_down,d,turn_right,frame_000271.jpg,1794595415248798100,306.2,0.930,out_of_combat,0.118,unknown,,abstain,Missing or uncertain observations.
+1794595415600705100,key_down,d,turn_right,frame_000271.jpg,1794595415248798100,351.9,0.930,out_of_combat,0.118,unknown,,abstain,Missing or uncertain observations.
+1794595415631807000,key_down,d,turn_right,frame_000271.jpg,1794595415248798100,383.0,0.930,out_of_combat,0.118,unknown,,abstain,Missing or uncertain observations.
+1794595415662003200,key_down,d,turn_right,frame_000271.jpg,1794595415248798100,413.2,0.930,out_of_combat,0.118,unknown,,abstain,Missing or uncertain observations.
+1794595415693080500,key_down,d,turn_right,frame_000271.jpg,1794595415248798100,444.3,0.930,out_of_combat,0.118,unknown,,abstain,Missing or uncertain observations.
+1794595415723917200,key_down,d,turn_right,frame_000271.jpg,1794595415248798100,475.1,0.930,out_of_combat,0.118,unknown,,abstain,Missing or uncertain observations.
+1794595415755696200,key_down,d,turn_right,frame_000272.jpg,1794595415750367200,5.3,0.965,out_of_combat,0.111,unknown,,abstain,Missing or uncertain observations.
+1794595416168293900,key_down,d,turn_right,frame_000272.jpg,1794595415750367200,417.9,0.965,out_of_combat,0.111,unknown,,abstain,Missing or uncertain observations.
+1794595416370550800,key_down,w,forward,frame_000273.jpg,1794595416249819100,120.7,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595416875987900,key_down,w,forward,frame_000274.jpg,1794595416751078450,124.9,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595416906869900,key_down,w,forward,frame_000274.jpg,1794595416751078450,155.8,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595416937006500,key_down,w,forward,frame_000274.jpg,1794595416751078450,185.9,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595416983262600,key_down,w,forward,frame_000274.jpg,1794595416751078450,232.2,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417013857900,key_down,w,forward,frame_000274.jpg,1794595416751078450,262.8,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417044283700,key_down,w,forward,frame_000274.jpg,1794595416751078450,293.2,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417075473700,key_down,w,forward,frame_000274.jpg,1794595416751078450,324.4,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417106383500,key_down,w,forward,frame_000274.jpg,1794595416751078450,355.3,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417137501100,key_down,w,forward,frame_000274.jpg,1794595416751078450,386.4,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417167720300,key_down,w,forward,frame_000274.jpg,1794595416751078450,416.6,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417214927800,key_down,w,forward,frame_000274.jpg,1794595416751078450,463.8,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417245284600,key_down,w,forward,frame_000274.jpg,1794595416751078450,494.2,0.965,out_of_combat,0.104,unknown,,abstain,Missing or uncertain observations.
+1794595417276374100,key_down,w,forward,frame_000275.jpg,1794595417250780400,25.6,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595417307570600,key_down,w,forward,frame_000275.jpg,1794595417250780400,56.8,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595417338823800,key_down,w,forward,frame_000275.jpg,1794595417250780400,88.0,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595417369490800,key_down,w,forward,frame_000275.jpg,1794595417250780400,118.7,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595417400088700,key_down,w,forward,frame_000275.jpg,1794595417250780400,149.3,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595417446788600,key_down,w,forward,frame_000275.jpg,1794595417250780400,196.0,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595417477690700,key_down,w,forward,frame_000275.jpg,1794595417250780400,226.9,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595417488169600,key_down,d,turn_right,frame_000275.jpg,1794595417250780400,237.4,0.965,out_of_combat,0.090,unknown,,abstain,Missing or uncertain observations.
+1794595419316176600,key_down,tab,target_nearest,frame_000279.jpg,1794595419253577350,62.6,1.000,out_of_combat,0.069,unknown,,abstain,Missing or uncertain observations.
+1794595421717271200,key_down,tab,target_nearest,frame_000283.jpg,1794595421251250350,466.0,1.000,out_of_combat,0.035,unknown,,abstain,Missing or uncertain observations.
+1794595424221513500,key_down,3,charge,frame_000288.jpg,1794595423753915700,467.6,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595425543560400,key_down,5,rend,frame_000291.jpg,1794595425255859250,287.7,1.000,out_of_combat,0.083,unknown,,abstain,Missing or uncertain observations.
+1794595429672598800,key_down,2,heroic_strike,frame_000299.jpg,1794595429256311500,416.3,1.000,combat,0.146,present,0.722,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595433429673300,key_down,2,heroic_strike,frame_000307.jpg,1794595433259686250,170.0,0.965,combat,0.153,present,0.250,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595437491757300,key_down,a,turn_left,frame_000315.jpg,1794595437262480500,229.3,1.000,out_of_combat,0.007,present,0.000,abstain,No validated decision for this situation.
+1794595437871156900,right_down,"2599,732",right_click,frame_000316.jpg,1794595437763152750,108.0,1.000,out_of_combat,0.007,unknown,,abstain,Missing or uncertain observations.
+1794595438709764000,key_down,a,turn_left,frame_000317.jpg,1794595438260650150,449.1,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439218938200,key_down,a,turn_left,frame_000318.jpg,1794595438761684700,457.3,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439250400300,key_down,a,turn_left,frame_000318.jpg,1794595438761684700,488.7,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439321760300,key_down,w,forward,frame_000319.jpg,1794595439261259950,60.5,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439835934700,key_down,w,forward,frame_000320.jpg,1794595439763630850,72.3,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439867343800,key_down,w,forward,frame_000320.jpg,1794595439763630850,103.7,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439898283900,key_down,w,forward,frame_000320.jpg,1794595439763630850,134.7,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439928503300,key_down,w,forward,frame_000320.jpg,1794595439763630850,164.9,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439959567600,key_down,w,forward,frame_000320.jpg,1794595439763630850,195.9,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595439989831700,key_down,w,forward,frame_000320.jpg,1794595439763630850,226.2,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440019499800,key_down,w,forward,frame_000320.jpg,1794595439763630850,255.9,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440066215100,key_down,w,forward,frame_000320.jpg,1794595439763630850,302.6,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440097241200,key_down,w,forward,frame_000320.jpg,1794595439763630850,333.6,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440128258500,key_down,w,forward,frame_000320.jpg,1794595439763630850,364.6,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440159002300,key_down,w,forward,frame_000320.jpg,1794595439763630850,395.4,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440190680100,key_down,w,forward,frame_000320.jpg,1794595439763630850,427.0,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440221987100,key_down,w,forward,frame_000320.jpg,1794595439763630850,458.4,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440253375600,key_down,w,forward,frame_000320.jpg,1794595439763630850,489.7,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440284549100,key_down,w,forward,frame_000321.jpg,1794595440260826800,23.7,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440330160700,key_down,w,forward,frame_000321.jpg,1794595440260826800,69.3,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595440335904500,key_down,d,turn_right,frame_000321.jpg,1794595440260826800,75.1,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595441519800400,key_down,a,turn_left,frame_000323.jpg,1794595441263778850,256.0,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595442026705200,key_down,w,forward,frame_000324.jpg,1794595441764033450,262.7,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595442330608100,key_down,tab,target_nearest,frame_000325.jpg,1794595442263386900,67.2,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595442738824500,key_down,d,turn_right,frame_000325.jpg,1794595442263386900,475.4,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595443281950800,key_down,3,charge,frame_000327.jpg,1794595443264263150,17.7,1.000,out_of_combat,0.000,unknown,,abstain,Missing or uncertain observations.
+1794595445080852000,key_down,0,victory_rush,frame_000330.jpg,1794595444765937550,314.9,1.000,combat,0.194,present,0.819,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595447207922600,key_down,5,rend,frame_000334.jpg,1794595446767697100,440.2,1.000,combat,0.243,present,0.694,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595449987004900,key_down,2,heroic_strike,frame_000340.jpg,1794595449767781300,219.2,0.972,combat,0.319,present,0.444,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595452900034800,key_down,2,heroic_strike,frame_000346.jpg,1794595452770176050,129.9,0.930,combat,0.229,present,0.153,abstain,"Combat: range, cooldowns and threats are not observed."
+1794595454489440400,right_down,"2599,732",right_click,frame_000349.jpg,1794595454271292850,218.1,0.930,out_of_combat,0.340,unknown,,abstain,Missing or uncertain observations.
+1794595455540158300,key_down,d,turn_right,frame_000351.jpg,1794595455272141300,268.0,0.930,out_of_combat,0.326,unknown,,abstain,Missing or uncertain observations.
+1794595455878061800,key_down,w,forward,frame_000352.jpg,1794595455772644800,105.4,0.930,out_of_combat,0.326,unknown,,abstain,Missing or uncertain observations.
+1794595456013066000,key_down,q,strafe_left,frame_000352.jpg,1794595455772644800,240.4,0.930,out_of_combat,0.326,unknown,,abstain,Missing or uncertain observations.
+1794595456418429000,key_down,d,turn_right,frame_000353.jpg,1794595456273618000,144.8,0.965,out_of_combat,0.326,unknown,,abstain,Missing or uncertain observations.
+1794595457402186800,key_down,d,turn_right,frame_000355.jpg,1794595457273964200,128.2,0.965,out_of_combat,0.410,unknown,,abstain,Missing or uncertain observations.
+1794595457875168200,key_down,d,turn_right,frame_000356.jpg,1794595457771547900,103.6,0.965,out_of_combat,0.299,unknown,,abstain,Missing or uncertain observations.

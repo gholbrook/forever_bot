@@ -1,0 +1,45 @@
+spell_id,name,subname,passive
+71,Defensive Stance,,0
+72,Shield Bash,Rank 1,0
+81,Dodge,Passive,1
+100,Charge,Rank 1,0
+107,Block,Passive,1
+355,Taunt,,0
+674,Dual Wield,Passive,1
+676,Disarm,,0
+694,Mocking Blow,Rank 1,0
+845,Cleave,Rank 1,0
+1608,Heroic Strike,Rank 4,0
+1715,Hamstring,Rank 1,0
+2457,Battle Stance,,0
+2550,Cooking,Apprentice ,0
+2565,Shield Block,,0
+2580,Find Minerals,,0
+2656,Smelting,,0
+2687,Bloodrage,,0
+2764,Throw,,0
+3100,Blacksmithing,Journeyman,0
+3127,Parry,Passive,1
+3274,First Aid,Journeyman,0
+5246,Intimidating Shout,,0
+5308,Execute,Rank 1,0
+6190,Demoralizing Shout,Rank 2,0
+6192,Battle Shout,Rank 3,0
+6547,Rend,Rank 3,0
+6574,Revenge,Rank 2,0
+6603,Attack,,0
+7384,Overpower,Rank 1,0
+7405,Sunder Armor,Rank 2,0
+7918,Shoot Gun,,0
+7919,Shoot Crossbow,,0
+8198,Thunder Clap,Rank 2,0
+20230,Retaliation,,0
+20580,Shadowmeld,Racial,0
+20582,Quickness,Racial Passive,1
+20585,Wisp Spirit,Racial Passive,1
+402927,Victory Rush,,0
+1240193,Slam,Rank 1,0
+1259799,Elune_s Light,Racial,0
+1293657,Languages,,1
+1293712,Armor Proficiency,,1
+1310185,Tactical Mastery,,1

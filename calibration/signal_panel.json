@@ -1,0 +1,18 @@
+{
+  "rect": [
+    1917,
+    127,
+    554,
+    26
+  ],
+  "screen": {
+    "left": 0,
+    "top": 0,
+    "width": 5120,
+    "height": 1440,
+    "is_primary": true,
+    "name": "Generic PnP Monitor",
+    "unique_id": "\\\\?\\DISPLAY#SAM74AF#5&1040d23&0&UID4355#{e6f07b5f-ee97-4a90-b076-33f57bf4eaa7}"
+  },
+  "cell_count": 18
+}
