@@ -20,7 +20,7 @@ from signal_panel import ALL_SIGNALS, find_markers, read_panel
 WINDOW_TITLE = 'Warcraft'
 LOOP_INTERVAL = 0.20  # 5 Hz matching your training data
 MAX_RADIUS = 300.5  # Map units allowed from starting spot before turning back
-STUCK_SECONDS = 2.5  # Trigger unstuck if moving forward without progress
+STUCK_SECONDS = 2.0  # Trigger unstuck if moving forward without progress
 HOLD_THRESHOLD = 0.40  # Lowered slightly from 0.50 so shorter datasets trigger movement
 TAP_THRESHOLD = 0.45  # Lowered slightly from 0.55 so abilities trigger reliably
 TAP_COOLDOWN = 0.35  # Minimum seconds between tapping the same ability
