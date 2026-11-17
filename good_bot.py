@@ -3,6 +3,7 @@ import json
 import math
 from pathlib import Path
 import time
+import random
 
 import joblib
 import mss
@@ -21,7 +22,7 @@ mouse_controller = mouse.Controller()
 # --- CONFIGURATION ---
 WINDOW_TITLE = 'Warcraft'
 LOOP_INTERVAL = 0.20  # 5 Hz matching your training data
-MAX_RADIUS = 300.5  # Map units allowed from starting spot before turning back
+MAX_RADIUS = 30.5  # Map units allowed from starting spot before turning back
 STUCK_SECONDS = 2.0  # Trigger unstuck if moving forward without progress
 HOLD_THRESHOLD = 0.40  # Lowered slightly from 0.50 so shorter datasets trigger movement
 TAP_THRESHOLD = 0.45  # Lowered slightly from 0.55 so abilities trigger reliably
@@ -92,7 +93,7 @@ def press_tap(key, shift=False, act_name=''):
     key, shift = key
 
   label = f'Shift+{key}' if shift else key
-  print(f'[KEY TAP]  {act_name} -> {label}', flush=True)
+  # print(f'[KEY TAP]  {act_name} -> {label}', flush=True)
   if shift:
     pydirectinput.keyDown('shift')
     time.sleep(0.02)
@@ -151,21 +152,29 @@ def approach_enemy(coords):
   right_click(coords)
 
 
+def walk_backwards(held_keys, seconds):
+    release_all_holds(held_keys)
+    time.sleep(0.05)
+    pydirectinput.keyDown('s')
+    time.sleep(random.randint(seconds, seconds*2))
+    pydirectinput.keyUp('s')
+
+
 def face_enemy(enemy_position):
     # face target
     x, y = enemy_position
-    if x > 2600:
+    if x > 2650:
         pydirectinput.keyDown('d')
-        time.sleep(0.1)
+        time.sleep(random.uniform(0.1, 0.4))
         pydirectinput.keyUp('d')
-    elif x < 2500:
+    elif x < 2450:
         pydirectinput.keyDown('a')
-        time.sleep(0.1)
+        time.sleep(random.uniform(0.1, 0.4))
         pydirectinput.keyUp('a')
 
 
-def combat_loop(enemy_position, health, ability_status, enemy_count):
-    print(f'FIGHTING {enemy_count} enemies...', flush=True)
+def combat_loop(enemy_position, health, ability_status, enemy_count, combat_ticks):
+    # print(f'FIGHTING {enemy_count} enemies...', flush=True)
     time.sleep(0.5)
     face_enemy(enemy_position)
     if health < 0.3:
@@ -178,8 +187,16 @@ def combat_loop(enemy_position, health, ability_status, enemy_count):
         press_tap(TAP_KEYMAP['overpower'])
     if ability_status.get('execute_usable') == 'yes':
         press_tap(TAP_KEYMAP['execute'])
+    if combat_ticks < 10 and combat_ticks > 0 and ability_status.get('thunder_clap_ready') == 'yes':
+        press_tap(TAP_KEYMAP['thunder_clap'])
+    if combat_ticks < 10 and combat_ticks > 0 and ability_status.get('demoralizing_shout_ready') == 'yes':
+        press_tap(TAP_KEYMAP['demoralizing_shout'])
     if ability_status.get('heroic_strike_usable') == 'yes':
         press_tap(TAP_KEYMAP['heroic_strike'])
+    if random.randint(1, 10) == 5:
+        pydirectinput.keyDown('s')
+        time.sleep(0.33)
+        pydirectinput.keyUp('s')
     # update this to somehow determine if they are actually attacking me vs just nearby
     # if enemy_count > 1:
     #     if ability_status.get('retaliation_ready'):
@@ -190,9 +207,15 @@ def combat_loop(enemy_position, health, ability_status, enemy_count):
 
 def loot_once():
   print('looting once...', flush=True)
-  time.sleep(0.4)  # Wait for corpse death animation / loot sparkles
+  time.sleep(random.uniform(0.4, 0.9))  # Wait for corpse death animation / loot sparkles
   right_click((2552, 761))
-  time.sleep(0.8)  # Wait for auto-loot window to finish collecting
+  time.sleep(random.uniform(0.8, 1.4))  # Wait for auto-loot window to finish collecting
+
+
+def clear_target():
+    pydirectinput.keyDown('esc')
+    time.sleep(random.uniform(0.2, 0.4))
+    pydirectinput.keyUp('esc')
 
 
 def main():
@@ -212,7 +235,7 @@ def main():
 
   def on_press(key):
     nonlocal stop_flag
-    if key in (keyboard.Key.esc, keyboard.Key.f12):
+    if key in (keyboard.KeyCode.from_char('['), keyboard.Key.f12):
       stop_flag = True
 
   listener = keyboard.Listener(on_press=on_press)
@@ -225,8 +248,11 @@ def main():
   prev_x, prev_y = None, None
   tick = 0
   was_focused = False
+  recovering = False
   prev_combat_val = 0
-  battle_shout_timer = time.monotonic()
+  combat_ticks = 0
+  out_of_combat_ticks = 0
+  battle_shout_timer = time.monotonic() - 180
 
   print(
       'Bot armed! Switch to WoW window. Press ESC or F12 at any time to stop.',
@@ -356,50 +382,76 @@ def main():
 
           # Use addon signals directly for reliable target detection
           has_target = (target_val > 0.5) or (signals.get('target') == 'yes')
+          target_health = feat_dict['target_health_fraction']
 
           # --- PATROL ---
           health = feat_dict['health_fraction']
           if combat_val < 0.5 and not has_target:
-              if health < 0.5:
-                  release_all_holds(currently_held)
-                  print('RECOVERING...')
-                  press_tap(TAP_KEYMAP['recover'])
-                  print(combat_val)
-                  if health < 0.99 and combat_val < 0.5:
-                      continue
-              if 'w' not in currently_held:
+              if 'w' not in currently_held and recovering == False:
                   pydirectinput.keyDown('w')
                   currently_held.add('w')
           # middle_x is 2550, greater than is to the right, less than is to the left
           # middle_y is around 733, greater than is lower, less than is higher
           nearest_enemy = (feat_dict['nearest_enemy_x'] * 1920, (feat_dict['nearest_enemy_y'] * 1080) + 120)
           enemy_count = feat_dict['enemy_count']
+          if (loop_start - battle_shout_timer) > 179 and signals.get('battle_shout_ready') == 'yes':
+              press_tap(TAP_KEYMAP['battle_shout'])
+              battle_shout_timer = loop_start
           if enemy_count > 0 and combat_val < 0.5:
               if 'w' in currently_held:
                   pydirectinput.keyUp('w')
                   currently_held.remove('w')
               approach_enemy(nearest_enemy)
           if has_target and combat_val < 0.5:
-              if enemy_count > 1:
+              if enemy_count > 2:
                   print(f'Shooting because enemy count: {enemy_count}')
                   release_all_holds(currently_held)
-                  press_tap(TAP_KEYMAP['shoot_gun'])
-                  time.sleep(1.1)
+                  if 'w' in currently_held:
+                      pydirectinput.keyUp('w')
+                      currently_held.remove('w')
+                  # time.sleep(random.uniform(0.1, 0.25))
+                  # press_tap(TAP_KEYMAP['shoot_gun'])
+                  # time.sleep(random.uniform(0.5, 1.1))
               elif signals.get('charge_usable') == 'yes' and signals.get('charge_range') == 'yes':
                   press_tap(TAP_KEYMAP['charge'])
               elif enemy_count > 0:
-                  time.sleep(0.5)
+                  time.sleep(random.uniform(0.5, 1.0))
                   approach_enemy(nearest_enemy)
+              if target_health < 0.01:
+                  clear_target()
           if has_target and combat_val > 0.5:
-              if (loop_start - battle_shout_timer) > 300 and signals.get('battle_shout_ready') == 'yes':
-                  press_tap(TAP_KEYMAP['battle_shout'])
-                  battle_shout_timer = loop_start
-              combat_loop(nearest_enemy, health, signals, enemy_count)
-          elif not has_target and combat_val > 0.5:
-              print('search for whats attacking me and target it')
+              if target_health <= 0.01 and out_of_combat_ticks > 0:
+                  print('Target is dead but still in combat. Walking backwards to see if I can bring a new target in front of me.')
+                  walk_backwards(currently_held, 1)
+                  press_tap(TAP_KEYMAP['target_tab'])
+                  press_tap(TAP_KEYMAP['heroic_strike'])
+              combat_loop(nearest_enemy, health, signals, enemy_count, combat_ticks)
+          # elif not has_target and combat_val > 0.5:
+          #     print('search for whats attacking me and target it')
+          #     press_tap(TAP_KEYMAP['target_tab'])
+          #     press_tap(TAP_KEYMAP['heroic_strike'])
           if prev_combat_val > 0.5 and combat_val < 0.5:
               release_all_holds(currently_held)
               loot_once()
+              if has_target:
+                  clear_target()
+                  has_target = False
+          if recovering and health < 0.95 and combat_val < 0.5:
+              continue
+          else:
+              recovering = False
+          if health < 0.5:
+              release_all_holds(currently_held)
+              print('RECOVERING...')
+              recovering = True
+              press_tap(TAP_KEYMAP['recover'])
+              continue
+          if combat_val > 0.5:
+              out_of_combat_ticks = 0
+              combat_ticks += 1
+          elif combat_val < 0.5:
+              combat_ticks = 0
+              out_of_combat_ticks += 1
           prev_combat_val = combat_val
 
 
