@@ -75,6 +75,10 @@ class BotState:
     self.no_damage_ticks = 0
     self.last_reclick_time = 0.0
     self.gun_pull_attempts = 0
+    self.leash_state = 'idle'
+    self.leash_probe_start = None
+    self.leash_probe_time = 0.0
+    self.leash_turns = 0
 
 
 # --- INPUT & MOVEMENT HELPERS ---
@@ -309,6 +313,9 @@ def read_observation(capture, monitor, cfg, panel, bot: BotState) -> dict:
       'target_health': float(state['target_health'] or 0.0),
       'px': px,
       'py': py,
+      'position_valid': (isinstance(signals.get('pos_x'), (int, float))
+                        and isinstance(signals.get('pos_y'), (int, float))
+                        and math.isfinite(px) and math.isfinite(py)),
       'enemy_count': enemy_count,
       'nearest_enemy': nearest_enemy,
       'has_cyan_box': sel_count > 0,
@@ -335,6 +342,12 @@ def decide_action(obs: dict, bot: BotState, now: float):
   # 2. IN COMBAT -> Execute combat rotation
   if in_combat:
       bot.recovering = False
+      bot.leash_state = 'idle'
+      bot.leash_probe_start = None
+      bot.leash_turns = 0
+      if not bot.prev_combat or 'w' in bot.currently_held:
+          print('[COMBAT] Stopping forward and click-to-move movement.', flush=True)
+          stop_movement(bot.currently_held)
 
       if not has_target:
           print(
@@ -364,8 +377,10 @@ def decide_action(obs: dict, bot: BotState, now: float):
           press_tap(TAP_KEYMAP['auto_attack'])
           if obs['has_cyan_box']:
               right_click(obs['cyan_enemy'])
+              stop_movement(bot.currently_held)
           elif obs['enemy_count'] > 0:
               right_click(obs['nearest_enemy'])
+              stop_movement(bot.currently_held)
           bot.no_damage_ticks = 0
           return
 
@@ -395,7 +410,7 @@ def decide_action(obs: dict, bot: BotState, now: float):
     return
 
   # 5. SAFETY: STUCK DETECTION & GEOFENCE LEASH
-  if len(bot.pos_history) == bot.pos_history.maxlen:
+  if bot.leash_state == 'idle' and len(bot.pos_history) == bot.pos_history.maxlen:
     oldest_x, oldest_y, _, _ = bot.pos_history[0]
     was_pushing = all(h and not c for _, _, h, c in bot.pos_history)
     if (
@@ -406,22 +421,66 @@ def decide_action(obs: dict, bot: BotState, now: float):
       bot.pos_history.clear()
       return
 
-  if bot.home_pos is not None and not has_target:
+  if bot.home_pos is not None and (bot.leash_state != 'idle' or not has_target):
     dist_from_home = math.hypot(
         obs['px'] - bot.home_pos[0], obs['py'] - bot.home_pos[1]
     )
-    if dist_from_home > MAX_RADIUS:
-      print(
-          f'[LEASH] Outside radius ({dist_from_home:.2f} > {MAX_RADIUS}),'
-          ' turning around...',
-          flush=True,
-      )
+    if bot.leash_state != 'idle' and not obs['position_valid']:
       release_all_holds(bot.currently_held)
-      pydirectinput.keyDown('d')
-      time.sleep(0.85)
-      pydirectinput.keyUp('d')
-      hold_key('w', bot.currently_held)
-      time.sleep(1.0)
+      bot.leash_probe_start = None
+      bot.leash_state = 'waiting'
+      return
+    if bot.leash_state != 'idle' and dist_from_home <= MAX_RADIUS * .8:
+      release_all_holds(bot.currently_held)
+      bot.leash_state = 'idle'
+      bot.leash_probe_start = None
+      bot.leash_turns = 0
+      bot.pos_history.clear()
+      print('[LEASH] Returned inside the patrol area.', flush=True)
+    elif dist_from_home > MAX_RADIUS or bot.leash_state != 'idle':
+      if not obs['position_valid']:
+        release_all_holds(bot.currently_held)
+        bot.leash_state = 'waiting'
+        return
+      if bot.leash_probe_start is None:
+        release_all_holds(bot.currently_held)
+        bot.leash_state = 'probe'
+        bot.leash_probe_start = (obs['px'], obs['py'])
+        bot.leash_probe_time = now
+        hold_key('w', bot.currently_held)
+        print(f'[LEASH] Measuring direction toward home ({dist_from_home:.2f} away).', flush=True)
+        return
+      dx = obs['px'] - bot.leash_probe_start[0]
+      dy = obs['py'] - bot.leash_probe_start[1]
+      travelled = math.hypot(dx, dy)
+      if travelled < .03:
+        if now - bot.leash_probe_time > 3:
+          release_all_holds(bot.currently_held)
+          bot.leash_state = 'idle'
+          bot.leash_probe_start = None
+          raise RuntimeError('Leash return stopped: no reliable movement in map coordinates.')
+        return
+      home_x = bot.home_pos[0] - obs['px']
+      home_y = bot.home_pos[1] - obs['py']
+      error = math.atan2(dx * home_y - dy * home_x, dx * home_x + dy * home_y)
+      release_key('w', bot.currently_held)
+      bot.leash_probe_start = None
+      if abs(error) <= .35:
+        bot.leash_turns = 0
+        print('[LEASH] Heading toward home.', flush=True)
+      else:
+        bot.leash_turns += 1
+        if bot.leash_turns > 16:
+          bot.leash_state = 'idle'
+          raise RuntimeError('Leash return could not establish a heading toward home.')
+        turn = 'd' if error > 0 else 'a'
+        print(f'[LEASH] Correcting heading with {turn}.', flush=True)
+        try:
+          pydirectinput.keyDown(turn)
+          time.sleep(min(.25, max(.06, abs(error) * .12)))
+        finally:
+          pydirectinput.keyUp(turn)
+      bot.pos_history.clear()
       return
 
   # 6. ENGAGE SELECTED TARGET OR NEARBY ENEMY
