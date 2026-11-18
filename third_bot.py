@@ -19,7 +19,7 @@ mouse_controller = mouse.Controller()
 # --- CONFIGURATION ---
 WINDOW_TITLE = 'Warcraft'
 LOOP_INTERVAL = 0.20  # 5 Hz tick rate
-MAX_RADIUS = 30.5  # Map units allowed from starting spot before turning back
+MAX_RADIUS = 3.5  # Map units allowed from starting spot before turning back
 STUCK_SECONDS = 2.0  # Trigger unstuck if moving forward without progress
 
 # Screen coordinates (5120x1440 ultrawide)
@@ -38,7 +38,7 @@ TAP_KEYMAP = {
     'hamstring': ('6', False),
     'overpower': ('7', False),
     'cleave': ('8', False),
-    'slam': ('9', False),
+    'reckless_swings': ('9', False),
     'victory_rush': ('0', False),
     'sunder_armor': ('-', False),
     'execute': ('=', False),

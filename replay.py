@@ -6,7 +6,7 @@ from collections import Counter
 from pathlib import Path
 
 KEYS = {'1': 'auto_attack', '2': 'heroic_strike', '3': 'charge', '4': 'thunderclap',
-        '5': 'rend', '6': 'hamstring', '7': 'overpower', '8': 'cleave', '9': 'slam',
+        '5': 'rend', '6': 'hamstring', '7': 'overpower', '8': 'cleave', '9': 'reckless_swings',
         '0': 'victory_rush', '-': 'sunder_armor', '=': 'recovery', 'tab': 'target_nearest',
         'w': 'forward', 's': 'backward', 'a': 'turn_left', 'd': 'turn_right',
         'q': 'strafe_left', 'e': 'strafe_right'}

@@ -14,7 +14,7 @@ FEATURES = ['health_fraction_estimate', 'rage_fraction_estimate', 'target_health
             'charge_appearance', 'victory_rush_appearance']
 NUMERIC = set(FEATURES[:3])
 LABELS = {'auto_attack', 'heroic_strike', 'charge', 'thunderclap', 'rend', 'hamstring',
-          'overpower', 'cleave', 'slam', 'victory_rush', 'sunder_armor', 'recovery'}
+          'overpower', 'cleave', 'reckless_swings', 'victory_rush', 'sunder_armor', 'recovery'}
 
 
 def features(row):

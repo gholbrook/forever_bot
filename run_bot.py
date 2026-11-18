@@ -45,7 +45,7 @@ TAP_KEYMAP = {
     'hamstring': ('6', False),
     'overpower': ('7', False),
     'cleave': ('8', False),
-    'slam': ('9', False),
+    'reckless_swings': ('9', False),
     'victory_rush': ('0', False),
     'sunder_armor': ('-', False),
     'execute': ('=', False),
