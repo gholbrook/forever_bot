@@ -31,6 +31,7 @@ ALL_SIGNALS = NAMES + [
     'battle_shout_ready',
     'pos_x',
     'pos_y',
+    'target_player',
 ]
 COORD_SIGNALS = {'pos_x', 'pos_y'}
 
@@ -61,7 +62,7 @@ def decode_coord_patch(patch) -> float | str:
 
 
 def read_panel(frame, rect, cell_count=7):
-  if cell_count not in (7, 8, 9, 16, len(ALL_SIGNALS)):
+  if cell_count not in (7, 8, 9, 16, 18, len(ALL_SIGNALS)):
     raise ValueError('Unsupported signal panel layout; recalibrate.')
   names = ALL_SIGNALS[:cell_count]
   layout_width = 26 * cell_count - 4
@@ -135,8 +136,13 @@ def main():
       action='store_true',
       help='Calibrate the full eighteen-cell addon with coordinates.',
   )
+  p.add_argument(
+      '--target-type-panel',
+      action='store_true',
+      help='Calibrate the nineteen-cell addon including target type.',
+  )
   args = p.parse_args()
-  if sum((args.legacy, args.shoot_panel, args.combat_panel, args.coord_panel)) > 1:
+  if sum((args.legacy, args.shoot_panel, args.combat_panel, args.coord_panel, args.target_type_panel)) > 1:
     p.error('Choose only one panel layout.')
   base = json.loads((CAL / 'config.json').read_text(encoding='utf-8'))
   with mss.mss() as capture:
@@ -159,8 +165,10 @@ def main():
           'Select exactly the colored row, from first square left edge to last'
           ' square right edge; exclude labels. Press Enter.',
       )
-      if args.coord_panel:
+      if args.target_type_panel:
         cell_count = len(ALL_SIGNALS)
+      elif args.coord_panel:
+        cell_count = 18
       elif args.combat_panel:
         cell_count = 16
       elif args.shoot_panel:

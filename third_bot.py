@@ -19,7 +19,7 @@ mouse_controller = mouse.Controller()
 # --- CONFIGURATION ---
 WINDOW_TITLE = 'Warcraft'
 LOOP_INTERVAL = 0.20  # 5 Hz tick rate
-MAX_RADIUS = 3.5  # Map units allowed from starting spot before turning back
+MAX_RADIUS = 5  # Map units allowed from starting spot before turning back
 STUCK_SECONDS = 2.0  # Trigger unstuck if moving forward without progress
 
 # Screen coordinates (5120x1440 ultrawide)
@@ -66,6 +66,7 @@ class BotState:
     self.home_pos = None
     self.prev_combat = False
     self.recovering = False
+    self.recovery_combat_readings = 0
     self.combat_ticks = 0
     self.out_of_combat_ticks = 0
     self.battle_shout_timer = time.monotonic() - 180
@@ -79,6 +80,10 @@ class BotState:
     self.leash_probe_start = None
     self.leash_probe_time = 0.0
     self.leash_turns = 0
+    self.retargeting = False
+    self.retarget_last = 0.0
+    self.retarget_confirmations = 0
+    self.last_target_type = None
 
 
 # --- INPUT & MOVEMENT HELPERS ---
@@ -175,11 +180,11 @@ def face_enemy(enemy_position):
   x, _ = enemy_position
   if x > CENTER_X + DEADZONE_X:
     pydirectinput.keyDown('d')
-    time.sleep(random.uniform(0.1, 0.4))
+    time.sleep(random.uniform(0.05, 0.2))
     pydirectinput.keyUp('d')
   elif x < CENTER_X - DEADZONE_X:
     pydirectinput.keyDown('a')
-    time.sleep(random.uniform(0.1, 0.4))
+    time.sleep(random.uniform(0.05, 0.2))
     pydirectinput.keyUp('a')
 
 
@@ -245,7 +250,11 @@ def combat_loop(enemy_position, health, signals, combat_ticks):
       press_tap(TAP_KEYMAP['thunder_clap'])
     if signals.get('demoralizing_shout_ready') == 'yes':
       press_tap(TAP_KEYMAP['demoralizing_shout'])
+  if 0 < combat_ticks < 20:
+    if signals.get('rend_ready') == 'yes':
+        press_tap(TAP_KEYMAP['rend'])
   if signals.get('heroic_strike_usable') == 'yes':
+    press_tap(('9', False))
     press_tap(TAP_KEYMAP['heroic_strike'])
 
   if random.randint(1, 10) == 5:
@@ -287,12 +296,14 @@ def read_observation(capture, monitor, cfg, panel, bot: BotState) -> dict:
 
   bot.prev_x, bot.prev_y = px, py
 
-  in_combat = str(state['combat']).lower() in (
-      'in_combat',
-      'combat',
-      'true',
-      '1',
-  )
+  combat_state = str(state['combat']).lower()
+
+  if combat_state in ('in_combat', 'combat', 'true', '1'):
+      in_combat = True
+  elif combat_state in ('out_of_combat', 'false', '0'):
+      in_combat = False
+  else:
+      in_combat = None
 
   unselected_boxes = find_markers(frame, selected=False)
   selected_boxes = find_markers(frame, selected=True)
@@ -306,10 +317,18 @@ def read_observation(capture, monitor, cfg, panel, bot: BotState) -> dict:
           or sel_count > 0  # If cyan box is visible, we definitely have a target!
   )
 
+  player_signal = signals.get('target_player')
+  target_type = ('player' if player_signal == 'yes' else
+                 'npc' if player_signal == 'no' else 'unknown')
+  if target_type != bot.last_target_type:
+    print(f'[TARGET] Type: {target_type}', flush=True)
+    bot.last_target_type = target_type
+
   return {
       'health': float(state['health'] or 1.0),
       'in_combat': in_combat,
       'has_target': has_target,
+      'target_type': target_type,
       'target_health': float(state['target_health'] or 0.0),
       'px': px,
       'py': py,
@@ -331,9 +350,22 @@ def decide_action(obs: dict, bot: BotState, now: float):
   has_target = obs['has_target']
   health = obs['health']
   signals = obs['signals']
+  if signals.get('target') == 'yes' and signals.get('target_player') == 'yes':
+    release_all_holds(bot.currently_held)
+    clear_target()
+    raise RuntimeError('Selected target is a player.')
+  if signals.get('target') not in ('yes', 'no') or (
+      signals.get('target') == 'yes' and signals.get('target_player') != 'no'):
+    release_all_holds(bot.currently_held)
+    print('[TARGET] Waiting for a readable target classification.', flush=True)
+    return
+  # Prefer the addon signal to a stale portrait or nameplate.
+  has_target = signals.get('target') == 'yes'
 
   # 1. JUST LEFT COMBAT -> Loot first, then clear dead target
   if bot.prev_combat and not in_combat:
+    bot.retargeting = False
+    bot.retarget_confirmations = 0
     release_all_holds(bot.currently_held)
     loot_once()
     clear_target()
@@ -349,23 +381,33 @@ def decide_action(obs: dict, bot: BotState, now: float):
           print('[COMBAT] Stopping forward and click-to-move movement.', flush=True)
           stop_movement(bot.currently_held)
 
-      if not has_target:
-          print(
-              '[COMBAT] In combat with no target! Tab-targeting attacker...',
-              flush=True,
-          )
-          press_tap(TAP_KEYMAP['target_tab'])
-          press_tap(TAP_KEYMAP['auto_attack'])
+      target_signal = signals.get('target')
+      hostile_signal = signals.get('hostile')
+      confirmed_lost = (target_signal == 'no' or
+                        (target_signal == 'yes' and hostile_signal == 'no'))
+      confirmed_living = (target_signal == 'yes' and hostile_signal == 'yes'
+                          and signals.get('target_player') == 'no')
+      if confirmed_lost:
+          bot.retargeting = True
+          bot.retarget_confirmations = 0
+      if bot.retargeting:
+          if confirmed_living:
+              bot.retarget_confirmations += 1
+              if bot.retarget_confirmations >= 2:
+                  print('[COMBAT] New living target confirmed; starting auto-attack.', flush=True)
+                  press_tap(TAP_KEYMAP['auto_attack'])
+                  bot.retargeting = False
+                  bot.retarget_confirmations = 0
+                  bot.no_damage_ticks = 0
+                  bot.prev_target_health = obs['target_health'] if obs['target_health'] > 0 else 1.0
+              return
+          bot.retarget_confirmations = 0
+          if confirmed_lost and (bot.retarget_last == 0.0 or now - bot.retarget_last >= 1.25):
+              print('[COMBAT] Target lost while combat continues; selecting another enemy.', flush=True)
+              press_tap(TAP_KEYMAP['target_tab'])
+              bot.retarget_last = now
           return
-
-      if obs['target_health'] <= 0.01 and bot.out_of_combat_ticks > 0:
-          print(
-              '[COMBAT] Target dead but still in combat. Backing up and tabbing.',
-              flush=True,
-          )
-          walk_backwards(bot.currently_held, 1)
-          press_tap(TAP_KEYMAP['target_tab'])
-          press_tap(TAP_KEYMAP['heroic_strike'])
+      if not confirmed_living:
           return
 
       if is_not_attacking(obs, bot):
@@ -374,13 +416,8 @@ def decide_action(obs: dict, bot: BotState, now: float):
               ' auto-attack...',
               flush=True,
           )
-          press_tap(TAP_KEYMAP['auto_attack'])
-          if obs['has_cyan_box']:
-              right_click(obs['cyan_enemy'])
-              stop_movement(bot.currently_held)
-          elif obs['enemy_count'] > 0:
-              right_click(obs['nearest_enemy'])
-              stop_movement(bot.currently_held)
+          walk_backwards(bot.currently_held, 1)
+          press_tap(TAP_KEYMAP['heroic_strike'])
           bot.no_damage_ticks = 0
           return
 
@@ -443,7 +480,9 @@ def decide_action(obs: dict, bot: BotState, now: float):
         bot.leash_state = 'waiting'
         return
       if bot.leash_probe_start is None:
-        release_all_holds(bot.currently_held)
+        # Keep running if we're already moving toward home.
+        if 'w' not in bot.currently_held:
+          release_all_holds(bot.currently_held)
         bot.leash_state = 'probe'
         bot.leash_probe_start = (obs['px'], obs['py'])
         bot.leash_probe_time = now
@@ -463,7 +502,10 @@ def decide_action(obs: dict, bot: BotState, now: float):
       home_x = bot.home_pos[0] - obs['px']
       home_y = bot.home_pos[1] - obs['py']
       error = math.atan2(dx * home_y - dy * home_x, dx * home_x + dy * home_y)
-      release_key('w', bot.currently_held)
+      # Stop forward movement for a large turn. Small corrections can
+      # happen while running.
+      if abs(error) > 1.0:
+          release_key('w', bot.currently_held)
       bot.leash_probe_start = None
       if abs(error) <= .35:
         bot.leash_turns = 0
@@ -485,6 +527,10 @@ def decide_action(obs: dict, bot: BotState, now: float):
 
   # 6. ENGAGE SELECTED TARGET OR NEARBY ENEMY
   if has_target:
+    if signals.get('hostile') != 'yes':
+      release_all_holds(bot.currently_held)
+      print('[TARGET] Waiting for an attackable NPC target.', flush=True)
+      return
     # Only stop and shoot if > 2 enemies are nearby AND the gun is usable/in range
     can_shoot = (
             signals.get('shoot_gun_usable') == 'yes'
@@ -510,36 +556,23 @@ def decide_action(obs: dict, bot: BotState, now: float):
             and signals.get('charge_range') == 'yes'
     ):
         print('[PULL] Charging target!', flush=True)
+        release_key('w', bot.currently_held)
         press_tap(TAP_KEYMAP['charge'])
         return
 
-    # Periodically re-click the cyan box (or nearest enemy box if cyan isn't detected)
-    if (now - bot.last_reclick_time) >= 0.40:
-        if obs['has_cyan_box']:
-            print(
-                f"[PULL] Re-clicking cyan box at {obs['cyan_enemy']}",
-                flush=True,
-            )
-            right_click(obs['cyan_enemy'])
-            bot.last_reclick_time = now
-        elif obs['enemy_count'] > 0:
-            print(
-                f"[PULL] Re-clicking nearest box at {obs['nearest_enemy']}",
-                flush=True,
-            )
-            right_click(obs['nearest_enemy'])
-            bot.last_reclick_time = now
-        else:
-            # Target is selected, but nameplate is temporarily off-screen -> move forward
-            hold_key('w', bot.currently_held)
+    if obs['has_cyan_box']:
+        face_enemy(obs['cyan_enemy'])
+    hold_key('w', bot.currently_held)
     return
 
-  # No target selected yet -> keep clicking nearest visible enemy every 0.40s
+  # Nameplates can be visible before Tab can select the enemy. Keep moving
+  # toward them while trying Tab, then release W when a target is selected.
   if obs['enemy_count'] > 0:
-    release_key('w', bot.currently_held)
-    if (now - bot.last_reclick_time) >= 0.40:
-        print(f"[PULL] Acquiring target at {obs['nearest_enemy']}", flush=True)
-        right_click(obs['nearest_enemy'])
+    face_enemy(obs['nearest_enemy'])
+    hold_key('w', bot.currently_held)
+    if (now - bot.last_reclick_time) >= 1.25:
+        print('[PULL] Walking toward a visible enemy and trying Tab.', flush=True)
+        press_tap(TAP_KEYMAP['target_tab'])
         bot.last_reclick_time = now
     return
 
@@ -554,6 +587,8 @@ def main():
   panel = json.loads(
       Path('calibration/signal_panel.json').read_text(encoding='utf-8')
   )
+  if panel.get('cell_count') != 19:
+      raise ValueError('NPC-only mode requires the 19-cell target-type panel calibration.')
 
   stop_flag = False
 
@@ -594,6 +629,25 @@ def main():
                   bot.was_focused = True
 
               obs = read_observation(capture, monitor, cfg, panel, bot)
+
+              # An unreadable combat indicator must not trigger looting or
+              # interrupt recovery.
+              if obs['in_combat'] is None:
+                  bot.recovery_combat_readings = 0
+                  release_all_holds(bot.currently_held)
+                  time.sleep(LOOP_INTERVAL)
+                  continue
+
+              # While recovering, confirm combat on two consecutive readings
+              # before interrupting recovery to fight.
+              if bot.recovering and obs['in_combat']:
+                  bot.recovery_combat_readings += 1
+                  if bot.recovery_combat_readings < 2:
+                      time.sleep(LOOP_INTERVAL)
+                      continue
+              else:
+                  bot.recovery_combat_readings = 0
+
               decide_action(obs, bot, loop_start)
 
               # Guaranteed bookkeeping at the end of EVERY tick
